@@ -9,7 +9,7 @@
 import User from '@/components/User.vue'
 
 export default {
-  name: 'Home',
+  name: 'UserPage',
   components: {
     User
   }

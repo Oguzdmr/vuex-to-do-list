@@ -35,7 +35,7 @@ export default {
   },
   methods: {
     addLocalStorage() {
-      localStorage.setItem("Name", this.name);
+      this.$store.dispatch("addName", this.name);
     },
   },
 };

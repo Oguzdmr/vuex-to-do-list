@@ -72,22 +72,27 @@ export default {
       selectedItem: "",
       taskText: "",
       listItem: {},
-      checked:false
+      toDoId:1,
+      urgentId:1,
+      planId:1
     };
   },
   methods: {
     addTask() {
       if (this.selectedItem === "Yapılacaklar") {
-        this.listItem = { listItemTodo: this.taskText , checked : this.checked };
-        this.$store.dispatch("addItemTodo", this.listItem);
+        this.listItem = { listItemTodo: this.taskText ,id:this.toDoId };
+        this.$store.dispatch("addItemTodo", this.listItem  );
+        this.toDoId++;
         console.log(this.$store.state.todo);
       } else if (this.selectedItem === "Acil Yapılacaklar") {
-        this.listItem = { listItemUrgent: this.taskText };
+        this.listItem = { listItemUrgent: this.taskText ,id:this.urgentId};
         this.$store.dispatch("addItemUrgent", this.listItem);
+        this.urgentId++;
         console.log(this.$store.state.urgent);
       } else if (this.selectedItem === "Uzun Vadeli Planlar") {
-        this.listItem = { listItemPlan: this.taskText };
+        this.listItem = { listItemPlan: this.taskText ,id:this.planId};
         this.$store.dispatch("addItemPlan", this.listItem);
+        this.planId++;
         console.log(this.$store.state.plan);
       }
 

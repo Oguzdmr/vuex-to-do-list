@@ -25,16 +25,14 @@
             v-for="(item, key) in $store.getters.getTodo"
             :key="key"
             style="margin-bottom:5px;"
-            v-bind:class="
-              checked == true && 'list-group-item list-group-item-success'
-            "
           >
             <input
-              v-model="checked"
               type="checkbox"
               aria-label="Checkbox for following text input"
               style="float:left;"
             />
+            <br>
+            <button class="btn btn-secondary" @click=" {{this.$store.dispatch('deleteItemTodo', item.id  );}} ">Sil</button>
             <p style="float:right;">{{ item.listItemTodo }}</p>
           </li>
         </ul>
@@ -49,16 +47,14 @@
             v-for="(item, key) in $store.getters.getUrgent"
             :key="key"
             style="margin-bottom:5px;"
-            v-bind:class="
-              checked == true && 'list-group-item list-group-item-success'
-            "
           >
             <input
-              v-model="checked"
               type="checkbox"
               aria-label="Checkbox for following text input"
               style="float:left;"
             />
+            <br>
+            <button class="btn btn-secondary"  @click=" {{this.$store.dispatch('deleteItemUrgent', item.id  );}} ">Sil</button>
             <p style="float:right;">{{ item.listItemUrgent }}</p>
           </li>
         </ul>
@@ -73,16 +69,14 @@
             v-for="(item, key) in $store.getters.getPlan"
             :key="key"
             style="margin-bottom:5px;"
-            v-bind:class="
-              checked == true && 'list-group-item list-group-item-success'
-            "
           >
             <input
-              v-model="checked"
               type="checkbox"
               aria-label="Checkbox for following text input"
               style="float:left;"
             />
+            <br>
+            <button class="btn btn-secondary"  @click=" {{this.$store.dispatch('deleteItemPlan', item.id  );}} ">Sil</button>
             <p style="float:right;">{{ item.listItemPlan }}</p>
           </li>
         </ul>
@@ -101,7 +95,6 @@ export default {
 
   data() {
     return {
-      checked: false,
     };
   },
   components: {
